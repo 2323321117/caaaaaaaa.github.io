@@ -23,12 +23,12 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  z-index: -1;
+  background: var(--fade-bg, rgba(0,0,0,0));
+  backdrop-filter: blur(var(--fade-blur, 0px));
+  -webkit-backdrop-filter: blur(var(--fade-blur, 0px));
+  z-index: 1;
   pointer-events: none;
-  transition: background 0.25s, backdrop-filter 0.25s;
+  transition: background 0.1s linear, backdrop-filter 0.1s linear;
 }
 
 .navbar {
@@ -216,10 +216,6 @@ body.privacy-page {
   overflow-x: hidden;
 }
 
-body.privacy-page::after {
-  display: none;
-}
-
 body.privacy-page .navbar {
   position: fixed;
   top: 0;
@@ -310,3 +306,79 @@ body.privacy-page .privacy-content li {
   font-size: 1.2rem;
   margin-bottom: 12px;
 }
+
+@media (max-width: 768px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  .navbar {
+    height: 70px;
+    padding: 0 24px;
+  }
+
+  .monkey {
+    height: 48px;
+    margin-left: 0;
+  }
+
+  .nav-right a {
+    margin-left: 24px;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 95%;
+  }
+
+  .play-btn {
+    padding: 16px 40px;
+    font-size: 0.9rem;
+    margin-top: -60px;
+  }
+
+  .learn-more {
+    font-size: 0.75rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .about-footer {
+    height: 80px;
+    gap: 12px;
+  }
+
+  .footer-logo {
+    height: 40px;
+  }
+
+  .about-footer span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  .play-btn {
+    padding: 14px 32px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
